@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="A propos | Younsi Adam" description="About Jeanine White Lorem Ipsum">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="A propos"
+				tagline="Découvrez mon parcours et mes compétences"
+			>
+				<img
+					width="1553"
+					height="873"
+					src="/assets/adamatwork.png"
+					alt="Adam Younsi"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Parcours</h2>
+				<div class="content">
+					<p>
+						J'ai débuté mes études en informatique à l'université de Béjaïa, en Algérie, tout en entreprenant des démarches pour poursuivre mon parcours en France. Après avoir été accepté à la faculté d'Angers, j'ai poursuivi mon chemin dans le domaine de l'informatique. Par la suite, j'ai dû quitter Angers pour rejoindre Aix-en-Provence, où j'ai intégré une école spécialisée en informatique, avec l'objectif de préparer une alternance pour l'année suivante en développement d'applications web. Ma capacité à m'adapter rapidement à différents environnements est l'une de mes forces, étant une personne observatrice, posée et réfléchie. J'aime aborder les problèmes avec maturité, en suivant ma devise : "Réfléchir avant d'agir."
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Diplomes</h2>
+				<div class="content">
+					<p>Bac+2 en informatique</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Skills</h2>
+				<div class="content">
+					<p>Curieux, ponctuel, patient, réfléchis, optimiste, polyalent, travail d'équipe</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
